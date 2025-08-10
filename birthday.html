@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Happy Birthday — For My Love</title>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
@@ -131,7 +131,78 @@
     }
     @media (max-width:480px){
       .card{width:100%}
+      
     }
+
+    /* Make hero layout stack vertically on small screens */
+@media (max-width: 880px) {
+  .hero-inner {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-left, .hero-right {
+    width: 100%;
+    max-width: 480px;
+  }
+  .photo-frame img {
+    height: 220px;
+  }
+  .card {
+    width: 48%; /* two cards per row */
+  }
+}
+
+/* For really small screens */
+@media (max-width: 480px) {
+  .card {
+    width: 100%; /* full width cards */
+  }
+  .hero-card {
+    padding: 16px;
+    border-radius: 16px;
+  }
+  #videoModal {
+    width: 90vw;
+    height: 70vh;
+  }
+  #surpriseVideo {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* Use relative widths for modal and videos */
+#videoModal {
+  width: 90vw;
+  max-width: 330px;
+  height: 70vh;
+  max-height: 580px;
+  border-radius: 12px;
+}
+
+/* Video fills modal */
+#surpriseVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Make buttons bigger for mobile */
+.small-btn {
+  padding: 12px 16px;
+  font-size: 1rem;
+}
+
+/* Increase tap targets on gift box */
+.gift {
+  width: 80vw;
+  max-width: 160px;
+  height: auto;
+  aspect-ratio: 16 / 14;
+  cursor: pointer;
+}
+
   </style>
 </head>
 <body>
@@ -222,11 +293,11 @@
               </div>
             </div>
 
-            <div class="card" style="min-width:200px">
+            <div class="card" style="min-width:100px">
   <div style="padding:12px">
     <div style="font-weight:600;margin-bottom:8px">Instructions</div>
     <div style="font-size:13px;color:rgba(59,47,51,0.7)">
-     Left side ena vena draw pani u can save di try a heart 😌
+     na vena draw pani u can save di try a heart 😌
     </div>
     
   </div>
@@ -318,7 +389,7 @@ You’re my favorite notification every day.</p>
         {date:'2025-04-06',title:'First Outing',text:'As a Girlfriend',emoji:'🚌'},
         {date:'2025-05-05',title:'First Bike Ride',text:'As a Wife',emoji:'🏍️'},
         {date:'2025-05-12',title:'First Movie',text:'As a Partner in Crime',emoji:'🍿'},
-        {date:'2025-05-28',title:'First Kiss',text:'As Everything',emoji:'👨🏽‍❤️‍💋‍👩🏻'}
+        {date:'2025-05-28',title:'First Kiss',text:'As Everything',emoji:'💋'}
         
       ],
       
@@ -413,8 +484,7 @@ const closeVideo = document.getElementById('closeVideo');
 gift.addEventListener('click', () => {
   gift.classList.toggle('open');
   if (gift.classList.contains('open')) {
-    // Old popup can be removed or commented out if you want
-    // createPopup('A small surprise: you get a movie night + cake coupon! 🎬🍰');
+    
     
     for (let i = 0; i < 8; i++) spawnHeart();
 
